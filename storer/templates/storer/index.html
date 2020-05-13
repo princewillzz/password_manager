@@ -1,0 +1,23 @@
+{% extends "storer/base.html" %}
+{% load static %}
+
+{% block title %}
+    <h1 id="title">Password Manager</h1>
+{% endblock %}
+
+
+
+{% block body %} 
+    <form id="search_form">
+        {% csrf_token %}
+        <div class="form-input">
+            <input type="text" name="entity" placeholder="search" id="searching_entity" autocomplete="off">
+        </div>
+        <input type="submit" class="submited" value="search" id="form_btn">
+    </form>
+
+    <div id="password_container"></div>
+
+    <!--<link rel="stylesheet" href="{% static 'storer/style_index.css' %}">-->
+    <script src="{% static 'storer/index1.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,27 @@
+body {
+    padding: 0%;
+    margin: auto;
+    background-color: black;
+}
+
+#title {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+#search_form {
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.form-input {
+    padding: 10px;
+    margin: auto;
+}
+.form-input input {
+    border-radius: 25px 10px 30px;
+}
+.form-input input:hover {
+    border-radius: 250px 100px 300px;
+}
