@@ -64,3 +64,14 @@ body{
     border-radius: 400px;
     transition: 0.5s;
 }
+
+.listing :nth-child(1) {
+    margin: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.listing :nth-child(2) {
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}

@@ -19,10 +19,24 @@ search_form.addEventListener('submit', function(event) {
     .then((response)=> response.json())
     .then((data)=> {
         console.log('Success:', data);
+
         var element = document.createElement('li')
         element.className = "listing"
-        var text = document.createTextNode("password: "+data["password"]) 
-        element.appendChild(text)
+
+        var text_content = document.createElement('span');
+        text_content.className = "text-content";
+        const text = document.createTextNode("password: "+data["password"]) 
+        text_content.appendChild(text);
+
+        var clipboard = document.createElement('span');
+        clipboard.className = "clipboard";
+        const copy_icon = document.createElement('i');
+        copy_icon.className = "far fa-copy";
+        clipboard.appendChild(copy_icon);
+
+        element.appendChild(text_content);
+        element.appendChild(clipboard);
+
         document.querySelector('#password-list').appendChild(element)
     })   
     input_data.value = '' 
