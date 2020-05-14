@@ -1,7 +1,8 @@
 body{
 	margin: 0%;
 	padding: 0;
-	font: sans-serif;
+    font: sans-serif;
+    
 }
 
 .title {
@@ -58,6 +59,7 @@ body{
 
 .listing {
     display: flex;
+    color: ghostwhite;
     background: rgb(250, 132, 205);
     padding: 10px 20px;
     margin: 5px 0;
@@ -74,4 +76,7 @@ body{
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
+}
+.listing:nth-child(n):hover {
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,117,253,1) 100%);
 }
