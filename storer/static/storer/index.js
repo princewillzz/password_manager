@@ -1,13 +1,10 @@
-const search_form = document.getElementById('search_form')
+const search_form = document.getElementById('search-form');
 
-//csrftoken = search_form.getElementsByTagName('input')[0].value
-
-search_form.addEventListener('submit', function(event){
+search_form.addEventListener('submit', function(event) {
     event.preventDefault()
 
-    input_data = document.querySelector('#searching_entity')
+    input_data = document.querySelector('#search-entity')
     if (input_data.value == '') return
-
 
     csrftoken = search_form.getElementsByTagName('input')[0].value 
     //console.log(input_data.value, csrftoken)
@@ -22,9 +19,11 @@ search_form.addEventListener('submit', function(event){
     .then((response)=> response.json())
     .then((data)=> {
         console.log('Success:', data);
-        const ele = document.createElement('li')
-        ele.innerHTML = "Password: " + data["message"]
-        document.querySelector('#password_container').append(ele)
+        var element = document.createElement('li')
+        element.className = "listing"
+        var text = document.createTextNode("password: "+data["password"]) 
+        element.appendChild(text)
+        document.querySelector('#password-list').appendChild(element)
     })   
     input_data.value = '' 
-})
+});

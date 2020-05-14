@@ -12,5 +12,5 @@ def index(request):
     
     data = json.loads(request.body)
     print(data)
-    context = {"message": "Hello World!"}
+    context = {"password": data}
     return JsonResponse(context, status=200)

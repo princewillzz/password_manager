@@ -1,0 +1,66 @@
+body{
+	margin: 0%;
+	padding: 0;
+	font: sans-serif;
+}
+
+.title {
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.search-form {
+	text-align: center;
+	top: 25%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+}
+.search-form input[type="text"] {
+    border: 2px solid #f58fa9;
+	border-width: 2px;
+	margin: auto;
+	padding: 10px;
+	border-radius: 24px 50px 30px;
+	border-style: solid;
+    transition: 0.35s;
+    width: 300px;
+}
+
+.search-form input[type="text"]:hover {
+    width: 400px;
+}
+
+#btn-submit {
+    border-radius: 10px 10px 10px 10px;
+}
+#btn-submit:hover {
+    border: 2px solid #f58fa9;
+    background-color: #f58fa9;
+    border-radius: 15px 15px 15px 15px; 
+}
+
+.password-container {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#password-list {
+    position: relative;
+    margin-top: 200px;
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.listing {
+    display: flex;
+    background: rgb(250, 132, 205);
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 400px;
+    transition: 0.5s;
+}
