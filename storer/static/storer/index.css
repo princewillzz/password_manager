@@ -19,6 +19,7 @@ body{
 	transform: translate(-50%,-50%);
 }
 .search-form input[type="text"] {
+    text-align: center;
     border: 2px solid #f58fa9;
 	border-width: 2px;
 	margin: auto;
@@ -37,6 +38,7 @@ body{
     border-radius: 10px 10px 10px 10px;
 }
 #btn-submit:hover {
+    transition: 0.5s;
     border: 2px solid #f58fa9;
     background-color: #f58fa9;
     border-radius: 15px 15px 15px 15px; 
@@ -66,6 +68,11 @@ body{
     border-radius: 400px;
     transition: 0.5s;
 }
+.listing:hover {
+    transform: scale(1.1);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,117,253,1) 100%);
+    transition: 0.5s;
+}
 
 .listing :nth-child(1) {
     margin: 20px;
@@ -76,7 +83,4 @@ body{
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
-}
-.listing:nth-child(n):hover {
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,117,253,1) 100%);
 }

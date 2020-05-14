@@ -9,9 +9,9 @@
     <form id="search-form" class="search-form">
         {% csrf_token %}
         <div class="form-group">
-            <label for="inputWebsite">Keyword</label>
-            <input type="text" class="form-control" id="search-entity" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
+            <label id="inputWebsite">Keyword</label>
+            <input type="text" class="form-control" id="search-entity" autocomplete="off">
+            <small class="form-text text-muted">We'll never share your password with anyone else.</small>
         </div>
         <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
     </form>
