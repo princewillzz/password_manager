@@ -10,6 +10,13 @@ def index(request):
     if request.method == "GET":
         return render(request, "storer/index.html")
     
+def getPassword(request):
+    if request.method == "GET":
+        context = {
+            "message": "Error"
+        }
+        return JsonResponse(context)
+
     data = json.loads(request.body)
     print(data)
     context = {"password": data}
