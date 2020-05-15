@@ -1,14 +1,16 @@
+const URL = "getPassword", key="website", value="password";
+
 const search_form = document.getElementById('search-form');
+search_form.addEventListener('submit', call_sender);
 
-const URL = "getPassword"
+// Sends the POST request to the backend and fetchs the data to be rendered
+function call_sender(event) {
+    event.preventDefault();
+    input_data = document.querySelector('#search-entity');
+    input_data.value = input_data.value.trim();
+    if (input_data.value == '') return;
 
-search_form.addEventListener('submit', function(event) {
-    event.preventDefault()
-
-    input_data = document.querySelector('#search-entity')
-    if (input_data.value == '') return
-
-    csrftoken = search_form.getElementsByTagName('input')[0].value 
+    csrftoken = search_form.getElementsByTagName('input')[0].value;
     //console.log(input_data.value, csrftoken)
     fetch(URL, {
         method: 'POST',
@@ -25,15 +27,16 @@ search_form.addEventListener('submit', function(event) {
         }
     })   
     input_data.value = '';
-});
+}
 
+// Render the password on the page when you ask it
 function load_password(data){
     var element = document.createElement('li')
     element.className = "listing"
 
     var text_content = document.createElement('span');
     text_content.className = "text-content";
-    var output_text = data["website"] + ": " + data["password"]
+    var output_text = data[key] + ": " + data[value]
     const text = document.createTextNode(output_text) 
     text_content.appendChild(text);
 
@@ -46,8 +49,10 @@ function load_password(data){
     element.appendChild(text_content);
     element.appendChild(clipboard);
 
-    document.querySelector('#password-list').appendChild(element);}
+    document.querySelector('#password-list').appendChild(element);
+}
 
+// Copy password by clicking on the item
 document.addEventListener('click', event => {
     var element = event.target;
 
@@ -91,3 +96,4 @@ document.addEventListener('click', event => {
 
     }
 } );
+
