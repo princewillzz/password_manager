@@ -3,6 +3,7 @@ from .models import Password
 from django.urls import reverse
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 import json
+from django.core import serializers
 #from django.views.decorators.csrf import csrf_exempt
 
 #@csrf_exempt
@@ -18,6 +19,13 @@ def getPassword(request):
         return JsonResponse(context)
 
     data = json.loads(request.body)
-    print(data)
-    context = {"password": data}
-    return JsonResponse(context, status=200)
+
+    objects = Password.objects.filter(website__icontains=data).values('website', 'password')
+    print(objects, data)
+    
+    context = list(objects)
+
+
+    print(context, type(context))
+
+    return JsonResponse(context, safe=False, status=200)

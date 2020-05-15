@@ -20,7 +20,9 @@ search_form.addEventListener('submit', function(event) {
     })
     .then((response)=> response.json())
     .then((data)=> {
-        load_password(data)
+        for(var i = 0; i < data.length; i++) {        
+            load_password(data[i])
+        }
     })   
     input_data.value = '';
 });
@@ -31,7 +33,8 @@ function load_password(data){
 
     var text_content = document.createElement('span');
     text_content.className = "text-content";
-    const text = document.createTextNode("password: "+data["password"]) 
+    var output_text = data["website"] + ": " + data["password"]
+    const text = document.createTextNode(output_text) 
     text_content.appendChild(text);
 
     var clipboard = document.createElement('span');
