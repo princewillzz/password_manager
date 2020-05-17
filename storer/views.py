@@ -3,11 +3,16 @@ from .models import Password
 from django.urls import reverse
 from django.http import Http404, JsonResponse, HttpResponseRedirect, HttpResponse
 import json
-from django.core import serializers
+from django.contrib.auth import authenticate
 #from django.views.decorators.csrf import csrf_exempt
 
 #@csrf_exempt
 def index(request):
+    if not request.user.is_authenticated:
+        print("logged out")
+        return render(request, "users/login.html")
+
+    print("logged in")
     already_present.clear()
     if request.method == "GET":
         return render(request, "storer/index.html")
