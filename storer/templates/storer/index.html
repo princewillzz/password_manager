@@ -1,31 +1,34 @@
 {% extends "storer/base.html" %}
 {% load static %}
 
-{% block title %}
-    <h1 class="title">Password Manager</h1>
+{% block title %} 
+    index
 {% endblock %}
 
 {% block body %} 
-    <form id="search-form" class="search-form">
-        {% csrf_token %}
-        <div class="form-group">
-            <label id="inputWebsite">Keyword</label>
-            <input type="text" class="form-control" id="search-entity" autocomplete="off">
-            <small class="form-text text-muted">We'll never share your password with anyone else.</small>
+    
+    <main>    
+        <h1 class="title">Password Manager</h1>
+        <form id="search-form" class="search-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="above-input">Keyword</label>
+                <input type="text" class="form-input" id="search-entity" autocomplete="off">
+                <small class="below-input">We'll never share your password with anyone else.</small>
+            </div>
+            <button type="submit" class="btn-submit" id="btn-submit">Submit</button>
+        </form>
+            
+        <div class="password-container">
+            <ul id="password-list">
+            </ul>
         </div>
-        <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
-    </form>
-        
-    <div class="password-container">
-        <ul id="password-list">
-        </ul>
-    </div>
+    </main>
+
 
     <script src="{% static 'storer/index.js' %}"></script>
     <script src="{% static 'storer/hel.js' %}"></script>
     <link rel="stylesheet" href="{% static 'storer/index.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    
     <!--<script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
     <link rel="stylesheet" href="{% static 'storer/fontawesome/css/all.css' %}">
 {% endblock %}

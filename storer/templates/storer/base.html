@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %} {% endblock %}
+    <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
+    
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a href="#" class="nav-link">
+                    <span class="hamburger"><i class="fas fa-hamburger"></i></span>
+                    <span class="link-text">MENU</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon"><i class="fa fa-address-book"></i></span>
+                    <span class="link-text">Cats</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon"><i class="fas fa-dog"></i></span>
+                    <span class="link-text">Aliens</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="icon"><i class="fa fa-address-book"></i></span>
+                    <span class="link-text">dogsy</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     {% block body %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'storer/navbar.css' %}">
 </body>
 </html>

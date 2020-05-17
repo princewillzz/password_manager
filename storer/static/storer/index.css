@@ -1,47 +1,91 @@
-
-
 .title {
-    margin: auto;
     padding: 10px;
+    font-size: 33px;
     text-align: center;
 }
 
 .search-form {
-	text-align: center;
-	left: 50%;
+    text-align: center;
+    text-decoration: none;
     position: relative;
-    margin-top: 100px;
-    display: inline-block;
+    display: table;
     padding: 10px;
-    box-sizing: border-box;
-    transform: translate(-50%,-50%);
+    width: 100%;
+    margin-top: 5vh;   
+    
+}
+.above-input {
+    display: inline-block;
+    padding: 8px;
+    color: rgba(47, 45, 45, 0.891);
+}
+.below-input {
+    color: rgb(138, 135, 135);
 }
 .search-form input[type="text"] {
     display: flex;
     text-align: center;
     border: 2px solid #f58fa9;
 	border-width: 2px;
-	margin: auto;
+    margin: auto;
+    padding: 9px;
 	border-radius: 24px 50px 30px;
 	border-style: solid;
     transition: 0.35s;
     width: 300px;
+    outline: none;
 }
-
+.search-form input[type="text"]:focus:active {
+    border-color: #4d79ff;
+    border-bottom: 2px #4d79ff;
+}
+.search-form input[type="text"]:focus, textarea:focus {
+    box-shadow: 0 0 7px rgba(81, 203, 238, 1);
+    
+}
 .search-form input[type="text"]:hover {
     width: 400px;
 }
 
-#btn-submit {
-    display: inline-flex;
+.btn-submit {
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    padding: auto;
+    margin: 15px;
+    display: inline-block;
+    padding: 10px;
+    border: #4d79ff;
     border-radius: 10px 10px 10px 10px;
+    background-color: #4d79ff;
+    width: 80px;
+    height: 40px;
+    font-weight: 520;
+    font-size: 16px;
+    outline: none;
+   
 }
-#btn-submit:hover {
+.btn-submit:hover {
     transition: 0.5s;
-    border: 2px solid #f58fa9;
     background-color: #f58fa9;
     border-radius: 15px 15px 15px 15px; 
+    cursor: pointer;
+    border: 1px solid rgb(75, 182, 248);
+    box-shadow: 0 0 7px rgba(81, 203, 238, 1);
 }
+.btn-submit:active {
+    transform: scale(1.1);
+}
+/*
+<form id="search-form" class="search-form">
+           
+    <div class="form-group">
+        <label class="above-input">Keyword</label>
+        <input type="text" class="form-input" id="search-entity" autocomplete="off">
+        <small class="below-input">We'll never share your password with anyone else.</small>
+    </div>
+    <button type="submit" class="btn-submit" id="btn-submit">Submit</button>
+</form>
+*/
 
 .password-container {
     margin: 0;
