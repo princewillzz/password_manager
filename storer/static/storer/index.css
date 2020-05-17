@@ -48,7 +48,8 @@
 }
 
 .btn-submit {
-    color: rgb(255, 255, 255);
+    color: #fff;
+    text-decoration: none;
     font-family: sans-serif;
     padding: auto;
     margin: 15px;
@@ -66,7 +67,7 @@
 }
 .btn-submit:hover {
     transition: 0.5s;
-    background-color: #f58fa9;
+    background: linear-gradient(90deg, #755bea, #ff72c0);
     border-radius: 15px 15px 15px 15px; 
     cursor: pointer;
     border: 1px solid rgb(75, 182, 248);
@@ -104,13 +105,13 @@
 .listing {
     display: flex;
     color: ghostwhite;
-    background: rgb(250, 132, 205);
+    background: linear-gradient(90deg, #755bea, #ff72c0);
     padding: 10px 20px;
     margin: 5px 0;
     border-radius: 400px;
     transition: 0.5s;
     animation: copy;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-fill-mode: forwards;
     animation-play-state: paused;
 }

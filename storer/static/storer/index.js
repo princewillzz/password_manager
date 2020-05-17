@@ -54,17 +54,19 @@ function load_password(data){
 }
 
 // Copy password by clicking on the item
-document.addEventListener('click', event => {
+const item = document.getElementById("password-list");
+item.addEventListener('click', event => {
     var element = event.target;
 
     if(element.className == "far fa-copy") {
         element = element.parentElement.parentElement;
     } else if(element.className == "clipboard") {
         element = element.parentElement;
-    }
+    } else if(element.className === "text-content") 
+        element = element.parentElement;
 
+    // Actual animation
     if (element.className === 'listing') {
-        element.style.animationPlayState = 'paused';
         tag = element.childNodes[0];
         var text = tag.innerHTML;
         text = text.split(":");
@@ -78,24 +80,11 @@ document.addEventListener('click', event => {
         document.execCommand('copy');
         document.body.removeChild(ele);
         element.style.animationPlayState = 'running';
-        
-    } else if(element.className === "text-content") {
-        element.parentElement.style.animationPlayState = 'paused';
-        var text = element.innerHTML;
-        text = text.split(":");
-        const pwd = text[text.length-1].trim();
 
-        const ele = document.createElement('textarea');
-        ele.value = pwd;
-        document.body.appendChild(ele);
-        ele.select();
-        ele.setSelectionRange(0, 99999);
-        document.execCommand('copy');
-
-        document.body.removeChild(ele);
-        element.parentElement.style.animationPlayState = 'running';
-
-    }
+        setTimeout(()=> {
+            element.style.animationPlayState = 'paused';
+        }, 3000);
+    } 
 } );
 
 
