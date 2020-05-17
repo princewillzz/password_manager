@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.http import HttpRequest, JsonResponse
+from django.http import HttpRequest, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -10,16 +10,19 @@ def index(request):
     return render(request, "users/login.html")
 
 def login_view(request):
-
+    if not request.method == "POST":
+        return index(request)
+        
     username = request.POST["username"]
     password = request.POST["password"]
 
     user = authenticate(request, username=username, password=password)
 
     print(user)
-    if user is not None:
-        login(request, user)
-        return render(request, "storer/index.html")
+    if user is None:
+        return index(request)
     else:
-        return render(request, "users/login.html")
+        login(request, user)
+        return HttpResponseRedirect(reverse("index")) 
+        
     

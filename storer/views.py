@@ -10,23 +10,26 @@ from django.contrib.auth import authenticate
 def index(request):
     if not request.user.is_authenticated:
         print("logged out")
+        already_present.clear()
         return render(request, "users/login.html")
 
     print("logged in")
-    already_present.clear()
     if request.method == "GET":
         return render(request, "storer/index.html")
 
 
 already_present = list()    
 def getPassword(request):
-    if request.method == "GET":
+
+    if not request.user.is_authenticated:
         raise Http404("Not Found")
 
-    if request.method == "DELETE":
-        already_present.clear()
-        print("done dlaskdjsadjasdlsjdsaldj")
-        return "harsh"
+    if request.method == "GET":
+        context = []
+        for ele in already_present:
+            object = Password.objects.filter(website=ele).values('website', 'password')
+            context.append(object[0])
+        return JsonResponse(context, safe=False, status = 200)
     
     data = json.loads(request.body)
 
